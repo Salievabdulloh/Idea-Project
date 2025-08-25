@@ -1,9 +1,129 @@
 {
     "home": {
-        "welcome": "Welcome to"
+        "hero": {
+            "title": "Work & Opportunity Across Our Country",
+            "subtitle": "Discover regions, industries, salaries and everything you need to build your career here.",
+            "ctaJobs": "Explore Jobs",
+            "ctaCompanies": "Meet Companies"
+        },
+        "highlights": {
+            "title": "Why Work Here",
+            "demand": {
+                "title": "High Talent Demand",
+                "desc": "Fast-growing teams in tech, construction, health and more."
+            },
+            "regions": {
+                "title": "Diverse Regions",
+                "desc": "City life, mountain towns and industrial hubs to match your style."
+            },
+            "openness": {
+                "title": "Welcoming Culture",
+                "desc": "Collaborative teams, mentorship and multilingual workplaces."
+            }
+        },
+        "regions": {
+            "title": "Key Regions & Cities",
+            "link": "See full overview",
+            "items": {
+                "capital": {
+                    "title": "Capital & Business Center",
+                    "desc": "Headquarters, startups and public sector roles."
+                },
+                "techHub": {
+                    "title": "Tech & Innovation",
+                    "desc": "Product companies, IT services and digital agencies."
+                },
+                "industrial": {
+                    "title": "Industrial Zone",
+                    "desc": "Manufacturing, logistics and infrastructure projects."
+                },
+                "mountain": {
+                    "title": "Mountain & Tourism",
+                    "desc": "Hospitality, eco-tourism and remote-friendly work."
+                }
+            }
+        },
+        "industries": {
+            "title": "In-Demand Industries",
+            "items": {
+                "tech": "Technology",
+                "construction": "Construction",
+                "healthcare": "Healthcare",
+                "education": "Education",
+                "agriculture": "Agriculture",
+                "tourism": "Tourism"
+            }
+        },
+        "salary": {
+            "title": "Salary & Cost of Living",
+            "housing": {
+                "title": "Housing",
+                "desc": "Affordable options in most regions, premium choices in city centers."
+            },
+            "transport": {
+                "title": "Transport",
+                "desc": "Public transit and ride-hailing make commuting predictable and budget-friendly."
+            },
+            "food": {
+                "title": "Food & Daily Life",
+                "desc": "Local cuisine and supermarkets at a wide range of price points."
+            }
+        },
+        "culture": {
+            "title": "Work Culture",
+            "point1": "Collaborative teams & mentorship",
+            "point2": "Healthy work-life balance",
+            "point3": "Respect for time & commitments"
+        },
+        "languages": {
+            "title": "Languages",
+            "desc": "Multiple languages used in business; inclusive, friendly communication in teams."
+        },
+        "learning": {
+            "title": "Learning & Growth",
+            "desc": "Upskilling programs, bootcamps and community events to grow your career."
+        },
+        "partners": {
+            "title": "Our Trusted Partners",
+            "subtitle": "We collaborate with leading organizations to bring reliable opportunities and services.",
+            "button": "See Partners",
+            "cta": "Become a Partner"
+        },
+        "start": {
+            "title": "Get Started in Minutes",
+            "subtitle": "Create your profile, explore roles and connect with top employers.",
+            "step1": {
+                "title": "Explore Jobs",
+                "desc": "Search by region, industry or skill to find the right fit."
+            },
+            "step2": {
+                "title": "Complete Your Profile",
+                "desc": "Showcase skills, projects and experience to stand out."
+            },
+            "step3": {
+                "title": "Connect & Apply",
+                "desc": "Message employers and apply with one click."
+            },
+            "ctaJobs": "Browse Jobs",
+            "ctaProfile": "Create Profile"
+        }
+    },
+    "header": {
+        "home": "Home",
+        "jobs": "Jobs",
+        "companies": "Companies",
+        "about": "About",
+        "dashboard": "Dashboard"
     },
     "companies": {
         "title": "Our Trusted Partners",
-        "subtitle": "We collaborate with industry leaders to bring you reliable opportunities and services."
+        "subtitle": "We collaborate with industry leaders to bring you reliable opportunities and services.",
+        "technova": "Innovating in software and digital solutions.",
+        "buildright": "Leaders in construction and infrastructure.",
+        "healthplus": "Delivering healthcare with compassion.",
+        "edusmart": "Transforming education with modern tools.",
+        "ctaTitle": "Want to Partner with Us?",
+        "ctaText": "Join our growing network of trusted organizations and create opportunities together.",
+        "ctaButton": "Become a Partner"
     }
 }

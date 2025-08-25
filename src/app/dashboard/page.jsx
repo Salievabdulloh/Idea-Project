@@ -17,7 +17,6 @@ const Dashboard = () => {
             key={user.id}
             className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
           >
-            {/* Profile Image */}
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center text-gray-400">
                 {user.profilePic ? (
@@ -36,7 +35,6 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Skills */}
             {user.skills?.length > 0 && (
               <div>
                 <h3 className="text-sm font-semibold text-gray-700 mb-1">Skills</h3>
@@ -53,14 +51,12 @@ const Dashboard = () => {
               </div>
             )}
 
-            {/* Bio */}
             {user.bio && (
               <p className="text-sm text-gray-600 line-clamp-3">
                 {user.bio}
               </p>
             )}
 
-            {/* Location & Phone */}
             <div className="text-sm text-gray-500 mt-auto">
               <p>📍 {user.personal.location || "Unknown"}</p>
               <p>📞 {user.personal.phone || "N/A"}</p>

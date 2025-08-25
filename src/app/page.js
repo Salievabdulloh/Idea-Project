@@ -3,18 +3,11 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import '../lib/i18n'
 
 const Home = () => {
   const router = useRouter()
 
-  let { t, i18n } = useTranslation()
-
-  function changeLang(lang) {
-    i18n.changeLanguage(lang)
-  }
-
-  let i18next = localStorage.getItem('i18nextLng')
+  let { t } = useTranslation()
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gradient-to-br from-blue-100 via-white to-green-100 font-[Poppins]">
@@ -39,14 +32,6 @@ const Home = () => {
         >
           I’m Hiring Workers
         </button>
-        <select
-          value={i18next}
-          onChange={(e) => changeLang(e.target.value)}
-          className="px-3 py-2 rounded-md border border-gray-300"
-        >
-          <option value="en">EN</option>
-          <option value="ru">RU</option>
-        </select>
       </div>
     </div>
   )

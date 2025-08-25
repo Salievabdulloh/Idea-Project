@@ -139,6 +139,36 @@
         }
       ],
       "bio": ""
+    },
+    {
+      "id": "7f38",
+      "personal": {
+        "firstName": "aba",
+        "email": "johnson@gmail.com",
+        "age": "",
+        "phone": "",
+        "location": ""
+      },
+      "skills": [
+        ""
+      ],
+      "experience": [
+        {
+          "company": "",
+          "role": "",
+          "years": "",
+          "description": ""
+        }
+      ],
+      "education": [
+        {
+          "school": "",
+          "degree": "",
+          "years": ""
+        }
+      ],
+      "bio": "",
+      "profilePic": {}
     }
   ],
   "registration": [
@@ -168,6 +198,24 @@
       "password": "9090",
       "confirmPassword": "9090",
       "type": "workerseeker"
+    },
+    {
+      "id": "0aad",
+      "firstName": "Alijon",
+      "email": "ali@gmail.com",
+      "age": "22",
+      "password": "2233",
+      "confirmPassword": "2233",
+      "type": "workerseeker"
+    },
+    {
+      "id": "0e16",
+      "firstName": "cxlkvjlkq3213",
+      "email": "LSKDFL@gmail.com",
+      "age": "324",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "type": "jobseeker"
     }
   ],
   "login": [
@@ -205,6 +253,11 @@
       "id": "fbc0",
       "email": "111@gmail.com",
       "password": "1111"
+    },
+    {
+      "id": "a1cf",
+      "email": "ali@gmail.com",
+      "password": "2233"
     }
   ]
 }

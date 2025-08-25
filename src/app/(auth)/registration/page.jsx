@@ -65,13 +65,6 @@ const Registration = () => {
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-6">
           Create <span className="text-blue-600">Account</span>
         </h2>
-
-        <div className="mb-4 text-sm text-gray-500">
-          {users.map((e, i) => (
-            <span key={i}>{e.firstName} </span>
-          ))}
-        </div>
-
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           <div>
             <input

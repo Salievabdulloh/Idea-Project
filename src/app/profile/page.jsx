@@ -21,7 +21,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
 
-  const { control, handleSubmit, register, reset, setValue } = useForm({
+  const { control, handleSubmit, register, reset, setValue, watch } = useForm({
     defaultValues: {
       personal: { firstName: '', email: '', age: '', phone: '', location: '' },
       skills: [''],
@@ -42,64 +42,35 @@ const Profile = () => {
     control, name: 'skills',
   })
 
-  const myProfile = data && data.length > 0 ? data[0] : null
   useEffect(() => {
     (async () => {
       const data = await getData()
+      const myProfile = data && data.length > 0 ? data[0] : null
       setUser(myProfile)
 
-      reset({
-        personal: myProfile?.personal || { firstName: '', email: '', age: '', phone: '', location: '' },
-        skills: myProfile?.skills?.length ? myProfile?.skills : [''],
-        experience: myProfile?.experience?.length ? myProfile?.experience : [{ company: '', role: '', years: '', description: '' }],
-        education: myProfile?.education?.length ? myProfile?.education : [{ school: '', degree: '', years: '' }],
-        bio: myProfile?.bio || '',
-        profilePic: myProfile?.profilePic || null,
-      })
+      if (myProfile) {
+        reset({
+          personal: myProfile?.personal || { firstName: '', email: '', age: '', phone: '', location: '' },
+          skills: myProfile?.skills?.length ? myProfile.skills : [''],
+          experience: myProfile?.experience?.length ? myProfile.experience : [{ company: '', role: '', years: '', description: '' }],
+          education: myProfile?.education?.length ? myProfile.education : [{ school: '', degree: '', years: '' }],
+          bio: myProfile?.bio || '',
+          profilePic: myProfile?.profilePic || null,
+        })
+      }
+
       setLoading(false)
     })()
   }, [getData, reset])
 
   const onSubmit = async (data) => {
-    const formData = new FormData()
-
-    formData.append("personal[firstName]", data.personal.firstName)
-    formData.append("personal[email]", data.personal.email)
-    formData.append("personal[age]", data.personal.age)
-    formData.append("personal[phone]", data.personal.phone)
-    formData.append("personal[location]", data.personal.location)
-
-    formData.append("bio", data.bio)
-
-    data.skills.forEach((skill, idx) => {
-      formData.append(`skills[${idx}]`, skill)
-    })
-
-    data.experience.forEach((exp, idx) => {
-      formData.append(`experience[${idx}][company]`, exp.company)
-      formData.append(`experience[${idx}][role]`, exp.role)
-      formData.append(`experience[${idx}][years]`, exp.years)
-      formData.append(`experience[${idx}][description]`, exp.description)
-    })
-
-    data.education.forEach((edu, idx) => {
-      formData.append(`education[${idx}][school]`, edu.school)
-      formData.append(`education[${idx}][degree]`, edu.degree)
-      formData.append(`education[${idx}][years]`, edu.years)
-    })
-
-    if (data.profilePic instanceof File) {
-      const base64Img = await toBase64(data.profilePic)
-      formData.append("profilePic", base64Img)
-    } else if (typeof data.profilePic === "string") {
-      formData.append("profilePic", data.profilePic) // keep existing
-    }
-
-    await fullRegistration(formData, user?.id)
+    await fullRegistration(data)
     router.push('/dashboard')
   }
 
   if (loading) return <p className="p-6">Loading...</p>
+
+  const profilePic = watch("profilePic")
 
   return (
     <div className="min-h-screen bg-gray-100 p-6 flex flex-col gap-8">
@@ -107,26 +78,26 @@ const Profile = () => {
         My Profile
       </header>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8 w-full max-w-6xl mx-auto">
+
         <div className="flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-lg shadow">
-          <div className="w-32 h-32 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center">
-            <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
-              {myProfile?.profilePic ? (
-                <img
-                  src={myProfile.profilePic}
-                  alt="Profile"
-                  className="w-32 h-32 rounded-full object-cover"
-                />
-              ) : profilePic ? (
+          <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+            {profilePic ? (
+              profilePic instanceof File ? (
                 <img
                   src={URL.createObjectURL(profilePic)}
                   alt="Profile"
                   className="w-32 h-32 rounded-full object-cover"
                 />
               ) : (
-                <span className="text-gray-400">👤</span>
-              )}
-            </div>
-
+                <img
+                  src={profilePic}
+                  alt="Profile"
+                  className="w-32 h-32 rounded-full object-cover"
+                />
+              )
+            ) : (
+              <span className="text-gray-400">👤</span>
+            )}
           </div>
           <div className="flex-1 flex flex-col gap-2">
             <label className="font-semibold">Upload Profile Picture</label>
@@ -137,6 +108,7 @@ const Profile = () => {
             />
           </div>
         </div>
+
         <section className="bg-white p-6 rounded-lg shadow flex flex-col gap-4">
           <h2 className="text-xl font-semibold">Personal Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -147,6 +119,7 @@ const Profile = () => {
             <input type="text" {...register('personal.location')} placeholder="Location" className="p-3 border rounded" />
           </div>
         </section>
+
         <section className="bg-white p-6 rounded-lg shadow flex flex-col gap-4">
           <h2 className="text-xl font-semibold">Skills</h2>
           <div className="flex flex-wrap gap-2">
@@ -159,6 +132,7 @@ const Profile = () => {
           </div>
           <button type="button" onClick={() => appendSkill('')} className="mt-2 text-blue-600 font-semibold">+ Add Skill</button>
         </section>
+
         <section className="bg-white p-6 rounded-lg shadow flex flex-col gap-4">
           <h2 className="text-xl font-semibold">Experience</h2>
           {expFields.map((field, index) => (
@@ -172,6 +146,7 @@ const Profile = () => {
           ))}
           <button type="button" onClick={() => appendExp({ company: '', role: '', years: '', description: '' })} className="mt-2 text-blue-600 font-semibold">+ Add Experience</button>
         </section>
+
         <section className="bg-white p-6 rounded-lg shadow flex flex-col gap-4">
           <h2 className="text-xl font-semibold">Education</h2>
           {eduFields.map((field, i) => (
@@ -184,11 +159,15 @@ const Profile = () => {
           ))}
           <button type="button" onClick={() => appendEdu({ school: '', degree: '', years: '' })} className="mt-2 text-blue-600 font-semibold">+ Add Education</button>
         </section>
+
         <section className="bg-white p-6 rounded-lg shadow flex flex-col gap-4">
           <h2 className="text-xl font-semibold">About Me</h2>
           <textarea {...register('bio')} placeholder="Write something about yourself..." className="w-full p-3 border rounded h-32"></textarea>
         </section>
-        <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">Save Profile</button>
+
+        <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+          Save Profile
+        </button>
 
       </form>
     </div>
