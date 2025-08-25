@@ -1,0 +1,210 @@
+{
+  "data": [
+    {
+      "id": "d86fa",
+      "personal": {
+        "firstName": "Abdulloh",
+        "email": "21@dsa",
+        "age": "",
+        "phone": "",
+        "location": ""
+      },
+      "skills": [
+        ""
+      ],
+      "experience": [
+        {
+          "company": "",
+          "role": "",
+          "years": "",
+          "description": ""
+        }
+      ],
+      "education": [
+        {
+          "school": "",
+          "degree": "",
+          "years": ""
+        }
+      ],
+      "bio": ""
+    },
+    {
+      "id": "d86f",
+      "personal": {
+        "firstName": "Abdulloh",
+        "email": "21@dsa"
+      },
+      "profilePic": "https://i.pravatar.cc/150?img=3"
+    },
+    {
+      "id": "09c4",
+      "personal": {
+        "firstName": "Abubakr",
+        "email": "abu@gmail.com",
+        "age": "22",
+        "phone": "+992 918 99 7660",
+        "location": "Dushanbe,Tajikistan"
+      },
+      "skills": [
+        "i know english russian a bit german too"
+      ],
+      "experience": [],
+      "education": [],
+      "bio": "I like traveling to many many coutries"
+    },
+    {
+      "id": "ed2c",
+      "personal": {
+        "firstName": "ss",
+        "email": "ss@gmail.com",
+        "age": "11",
+        "phone": "ss",
+        "location": "ss"
+      },
+      "skills": [
+        ""
+      ],
+      "experience": [
+        {
+          "company": "21",
+          "role": "21",
+          "years": "21",
+          "description": "21"
+        }
+      ],
+      "education": [
+        {
+          "school": "",
+          "degree": "",
+          "years": ""
+        }
+      ],
+      "bio": "baabab"
+    },
+    {
+      "id": "0e6b",
+      "personal": {
+        "firstName": "",
+        "email": "",
+        "age": "",
+        "phone": "",
+        "location": ""
+      },
+      "skills": [
+        ""
+      ],
+      "experience": [
+        {
+          "company": "",
+          "role": "",
+          "years": "",
+          "description": ""
+        }
+      ],
+      "education": [
+        {
+          "school": "",
+          "degree": "",
+          "years": ""
+        }
+      ],
+      "bio": ""
+    },
+    {
+      "id": "4dec",
+      "personal": {
+        "firstName": "Ali",
+        "email": "ali@gmail.com",
+        "age": "12",
+        "phone": "+992 918 99 7660",
+        "location": "Dushanbe,Tajikistan"
+      },
+      "skills": [
+        "i dont have much skill"
+      ],
+      "experience": [
+        {
+          "company": "Alif",
+          "role": "Senior",
+          "years": "22",
+          "description": ""
+        }
+      ],
+      "education": [
+        {
+          "school": "School №66",
+          "degree": "middle",
+          "years": "9"
+        }
+      ],
+      "bio": ""
+    }
+  ],
+  "registration": [
+    {
+      "id": "9fc2",
+      "firstName": "Abubakr",
+      "email": "111@gmail.com",
+      "age": "21",
+      "password": "1111",
+      "confirmPassword": "1111",
+      "type": "jobseeker"
+    },
+    {
+      "id": "9826",
+      "firstName": "aba",
+      "email": "111@gmail.com",
+      "age": "21",
+      "password": "2222",
+      "confirmPassword": "2222",
+      "type": null
+    },
+    {
+      "id": "d379",
+      "firstName": "Yuri",
+      "email": "yuri@gmail.com",
+      "age": "21",
+      "password": "9090",
+      "confirmPassword": "9090",
+      "type": "workerseeker"
+    }
+  ],
+  "login": [
+    {
+      "id": "2d0e",
+      "email": "yuri@gmail.com",
+      "password": "9090"
+    },
+    {
+      "id": "e9b2",
+      "email": "yuri@gmail.com",
+      "password": "9090"
+    },
+    {
+      "id": "9000",
+      "email": "111@gmail.com",
+      "password": "1111"
+    },
+    {
+      "id": "2d2b",
+      "email": "yuri@gmail.com",
+      "password": "9090"
+    },
+    {
+      "id": "7701",
+      "email": "yuri@gmail.com",
+      "password": "9090"
+    },
+    {
+      "id": "2842",
+      "email": "yuri@gmail.com",
+      "password": "9090"
+    },
+    {
+      "id": "fbc0",
+      "email": "111@gmail.com",
+      "password": "1111"
+    }
+  ]
+}
