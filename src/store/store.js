@@ -5,6 +5,7 @@ let api = 'http://localhost:5000/'
 export const useGetStore = create((set, get) => ({
     users: [],
     fullUsers: [],
+    getJobs: [],
     getUsers: async () => {
         try {
             let { data } = await axios.get(`${api}registration`)
@@ -23,8 +24,8 @@ export const useGetStore = create((set, get) => ({
     },
     login: async (data) => {
         try {
-            await axios.post(`${api}login`, data)
-            // await get().getUsers()
+            await axios.post(`${api}registration`, data)
+            await get().getUsers()
         } catch (error) {
             console.error(error)
         }
@@ -44,5 +45,13 @@ export const useGetStore = create((set, get) => ({
         } catch (error) {
             console.error(error);
         }
+    },
+    getJobsUsers: async () => {
+        let { data } = await axios.get(`${api}getJobs`)
+        set({ getJobs: data })
+    },  
+    postJobs: async (data) => {
+        await axios.post(`${api}getJobs`, data)
+        await get().getJobsUsers()
     }
 }))

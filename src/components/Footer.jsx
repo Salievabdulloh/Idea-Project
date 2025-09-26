@@ -5,9 +5,8 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gray-50 mt-20">
+    <footer className="w-full bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 grid md:grid-cols-4 gap-8">
-        {/* Logo & Description */}
         <div>
           <h1 className="text-2xl font-bold text-blue-600">JobNest 🪺</h1>
           <p className="text-gray-600 mt-2">
@@ -15,7 +14,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Links */}
         <div>
           <h3 className="font-semibold mb-3">Company</h3>
           <ul className="text-gray-600 space-y-2">

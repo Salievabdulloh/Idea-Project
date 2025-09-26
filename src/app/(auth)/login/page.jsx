@@ -2,6 +2,7 @@
 
 import { useGetStore } from '@/store/store'
 import { Eye } from 'lucide-react'
+import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -82,13 +83,22 @@ const Login = () => {
                             placeholder="Password"
                             className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
                         />
-                        <span className='top-2 right-3 absolute' onClick={() => setopenEye(!openEye)}>{password ? <Eye /> : ""}</span>
+                        <span className='top-2 right-3 absolute cursor-pointer' onClick={() => setopenEye(!openEye)}>{password ? <Eye /> : ""}</span>
                         {errors.password && <p className="text-red-500 text-sm">Password is required</p>}
                     </div>
                     <input
                         type="submit"
                         className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition"
                     />
+                    <p className="mt-3 text-center text-sm text-gray-600">
+                        Don&apos;t have an account?{" "}
+                        <Link
+                            href="/registration"
+                            className="text-blue-600 font-medium hover:underline hover:text-blue-700 transition"
+                        >
+                            Registration
+                        </Link>
+                    </p>
                 </form>
             </div>
         </div>

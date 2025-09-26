@@ -1,8 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
+import { useGetStore } from '@/store/store'
+import SwiperCard from '@/components/SwiperCard'
 
 export default function Home() {
   const { t } = useTranslation()
@@ -22,7 +24,7 @@ export default function Home() {
     },
     {
       key: 'mountain',
-      img: 'https://images.unsplash.com/photo-1502303756787-90e8f0b84a22?q=80&w=1200&auto=format&fit=crop',
+      img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470',
     },
   ]
 
@@ -72,7 +74,7 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-6 py-14">
         <div className="flex items-end justify-between mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold">{t('home.regions.title', 'Key Regions & Cities')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">{t('home.regions.title')}</h2>
           <Link href="/about" className="text-blue-600 hover:underline">{t('home.regions.link', 'See full overview')}</Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -164,6 +166,35 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="max-w-7xl mx-auto px-6 py-16 relative">
+        <div className="text-center mb-5">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-700 to-green-600 bg-clip-text text-transparent">
+            {t('home.talentSpotlight.title', 'Meet Our Talents')}
+          </h2>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            {t(
+              'home.talentSpotlight.subtitle',
+              'Explore profiles of professionals actively seeking opportunities. These motivated individuals are ready to contribute to your projects and grow with your team.'
+            )}
+          </p>
+        </div>
+
+        <div className="relative">
+          <SwiperCard />
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-green-100 rounded-full blur-3xl opacity-30"></div>
+        </div>
+
+        <div className="mt-5 text-center">
+          <Link
+            href="/talents"
+            className="px-6 py-3 rounded-2xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition shadow"
+          >
+            {t('home.talentSpotlight.cta', 'Browse All Candidates')}
+          </Link>
+        </div>
+      </section>
+
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold">{t('home.start.title', 'Get Started in Minutes')}</h2>
@@ -195,8 +226,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
-      {/* <div className="h-6" /> */}
     </div>
   )
 }

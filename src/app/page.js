@@ -27,11 +27,9 @@ const Home = () => {
           I’m Searching for Work
         </button>
         <button
-          onClick={() => router.push('/registration?type=workerseeker')}
+          onClick={() => router.push('/jobs')}
           className="px-8 cursor-pointer py-4 bg-green-600 text-white font-semibold rounded-2xl shadow-md hover:bg-green-700 transition"
-        >
-          I’m Hiring Workers
-        </button>
+        >I’m Hiring Workers</button>
       </div>
     </div>
   )

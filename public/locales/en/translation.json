@@ -1,5 +1,6 @@
 {
     "home": {
+        "welcome": "Welcome to",
         "hero": {
             "title": "Work & Opportunity Across Our Country",
             "subtitle": "Discover regions, industries, salaries and everything you need to build your career here.",
@@ -106,6 +107,17 @@
             },
             "ctaJobs": "Browse Jobs",
             "ctaProfile": "Create Profile"
+        },
+        "talentSpotlight": {
+            "title": "Meet Our Talents",
+            "subtitle": "Explore profiles of professionals actively seeking opportunities. These motivated individuals are ready to contribute to your projects and grow with your team.",
+            "cta": "Browse All Candidates",
+            "card": {
+                "email": "Email",
+                "noPic": "No picture",
+                "available": "Available for work",
+                "skills": "Key Skills"
+            }
         }
     },
     "header": {
