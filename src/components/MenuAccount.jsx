@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import Logout from './Logout';
-import { User, User2, UserIcon } from 'lucide-react';
+import { User, User2, UserCircle2, UserIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useGetStore } from '@/store/store';
 import Image from 'next/image';
@@ -65,10 +65,10 @@ export default function MenuAccount() {
                     aria-haspopup="true"
                     onClick={handleToggle}
                 >
-                    {!getUser ? (
-                        <User />
+                    {!getUser?.img ? (
+                        <UserCircle2 size={30} color='black' />
                     ) : (
-                        <Image width={35} height={35} className='rounded-full w-[35px] object-cover h-[35px]' src={getUser?.img} alt="" />
+                        <Image width={30} height={30} className='rounded-full w-[30px] object-cover h-[30px]' src={getUser?.img} alt="" />
                     )}
                 </Button>
                 <Popper

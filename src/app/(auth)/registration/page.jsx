@@ -40,10 +40,15 @@ const Registration = () => {
       return
     }
     let name = users.map(e => e.firstName)
+    let email = users.map(e => e.email)
 
     for (let i = 0; i <= name.length; i++) {
       if (name[i] == data.firstName) {
         alert("This name is already taken!")
+        return
+      }
+      else if (email[i] === data.email) {
+        alert("This email has already been used!")
         return
       }
     }

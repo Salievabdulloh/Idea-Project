@@ -54,8 +54,8 @@ export const useGetStore = create((set, get) => ({
         await axios.post(`${api}getJobs`, data)
         await get().getJobsUsers()
     },
-    editUsers: async () => {
-        await axios.put(`${api}registration`)
+    editUsers: async (idx, data) => {
+        await axios.put(`${api}registration/${idx}`, data)
         await get().getUsers()
     }
 }))

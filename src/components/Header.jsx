@@ -16,6 +16,8 @@ const Header = () => {
 
   const getToken = localStorage.getItem('access_token')
 
+  // if (!getToken) {/
+
   useEffect(() => {
     const storedLang = localStorage.getItem('i18nextLng') || 'en'
     setLang(storedLang)
