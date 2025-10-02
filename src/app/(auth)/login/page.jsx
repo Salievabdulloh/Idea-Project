@@ -40,18 +40,37 @@ const Login = () => {
             return
         }
 
-        await login(data)
-        console.log(findUser.type);
+        const token = findUser.token
+        console.log(token)
+        localStorage.setItem("access_token", token)
 
-        if (findUser.type === 'jobseeker') {
-            router.push("/profile")
+        if (!token) {
+            alert("Please get your token")
+            return
         } else {
-            router.push("/dashboard")
+            await login(data)
+            if (findUser.type === 'jobseeker') {
+                router.push("/profile")
+            } else {
+                router.push("/dashboard")
+            }
         }
+
+
     }
 
 
     useEffect(() => { getUsers() }, [])
+
+    useEffect(() => {
+        const token = localStorage.getItem("access_token");
+        if (token) {
+            const currentUser = users.find(u => u.token === token);
+            if (currentUser) {
+                console.log("Welcome back", currentUser.firstName);
+            }
+        }
+    }, [users]);
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-white to-green-100 p-6">

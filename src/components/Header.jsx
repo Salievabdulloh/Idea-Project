@@ -4,10 +4,17 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import '../lib/i18n'
+import { User } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import MenuAccount from './MenuAccount'
 
 const Header = () => {
   const { t, i18n } = useTranslation()
   const [lang, setLang] = useState('en')
+
+  const router = useRouter()
+
+  const getToken = localStorage.getItem('access_token')
 
   useEffect(() => {
     const storedLang = localStorage.getItem('i18nextLng') || 'en'
@@ -34,7 +41,7 @@ const Header = () => {
           <Link href="/dashboard">Dashboard</Link>
         </nav>
 
-        <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex items-center gap-4">
           <Link
             href="/login"
             className="px-4 py-2 rounded-lg border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition"
@@ -55,6 +62,11 @@ const Header = () => {
             <option value="en">EN</option>
             <option value="ru">RU</option>
           </select>
+          <div className="z-99">
+            {getToken && (
+              <MenuAccount />
+            )}
+          </div>
         </div>
 
         <div className="md:hidden">

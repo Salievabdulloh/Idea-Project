@@ -1,0 +1,113 @@
+'use client'
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Grow from '@mui/material/Grow';
+import Paper from '@mui/material/Paper';
+import Popper from '@mui/material/Popper';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+import Stack from '@mui/material/Stack';
+import Logout from './Logout';
+import { User, User2, UserIcon } from 'lucide-react';
+import Link from 'next/link';
+import { useGetStore } from '@/store/store';
+import Image from 'next/image';
+
+export default function MenuAccount() {
+    const [open, setOpen] = React.useState(false);
+    const anchorRef = React.useRef(null);
+
+    const handleToggle = () => {
+        setOpen((prevOpen) => !prevOpen);
+    }
+
+    const { getUsers, users } = useGetStore()
+
+    const getToken = localStorage.getItem('access_token')
+
+    const getUser = users?.find(e => e?.token === getToken)
+
+    const handleClose = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+            return;
+        }
+        setOpen(false)
+    }
+
+    function handleListKeyDown(event) {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            setOpen(false);
+        } else if (event.key === 'Escape') {
+            setOpen(false);
+        }
+    }
+
+    const prevOpen = React.useRef(open);
+    React.useEffect(() => {
+        if (prevOpen.current === true && open === false) {
+            anchorRef.current.focus();
+        }
+        prevOpen.current = open;
+    }, [open])
+
+    React.useEffect(() => { getUsers() }, [])
+
+    return (
+        <Stack direction="row" spacing={2}>
+            <div>
+                <Button
+                    ref={anchorRef}
+                    id="composition-button"
+                    aria-controls={open ? 'composition-menu' : undefined}
+                    aria-expanded={open ? 'true' : undefined}
+                    aria-haspopup="true"
+                    onClick={handleToggle}
+                >
+                    {!getUser ? (
+                        <User />
+                    ) : (
+                        <Image width={35} height={35} className='rounded-full w-[35px] object-cover h-[35px]' src={getUser?.img} alt="" />
+                    )}
+                </Button>
+                <Popper
+                    open={open}
+                    anchorEl={anchorRef.current}
+                    role={undefined}
+                    placement="bottom-start"
+                    transition
+                    disablePortal
+                >
+                    {({ TransitionProps, placement }) => (
+                        <Grow
+                            {...TransitionProps}
+                            style={{
+                                transformOrigin:
+                                    placement === 'bottom-start' ? 'left top' : 'left bottom',
+                            }}
+                        >
+                            <Paper>
+                                <ClickAwayListener onClickAway={handleClose}>
+                                    <MenuList
+                                        autoFocusItem={open}
+                                        id="composition-menu"
+                                        aria-labelledby="composition-button"
+                                        onKeyDown={handleListKeyDown}
+                                    >
+                                        <Link href="/profile">
+                                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                        </Link>
+                                        <MenuItem onClick={handleClose}>
+                                            <Logout />
+                                        </MenuItem>
+                                    </MenuList>
+                                </ClickAwayListener>
+                            </Paper>
+                        </Grow>
+                    )}
+                </Popper>
+            </div>
+        </Stack>
+    );
+}

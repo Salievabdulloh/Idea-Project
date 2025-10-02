@@ -47,7 +47,13 @@ const Registration = () => {
         return
       }
     }
-    await registration({ ...data, type: role })
+
+    const token = crypto.randomUUID()
+
+    await registration({ ...data, type: role, token })
+
+    localStorage.setItem("access_token", token)
+    console.log("User registered with token:", token);
 
     if (role === 'jobseeker') {
       router.push("/profile")

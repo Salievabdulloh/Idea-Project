@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import './styles.css';
 import { useGetStore } from '@/store/store';
 import Link from 'next/link';
+import { User } from 'lucide-react';
 
 export default function SwiperCard() {
     const [swiperRef, setSwiperRef] = useState(null)
@@ -23,7 +24,6 @@ export default function SwiperCard() {
                 modules={[Virtual, Navigation, Pagination]}
                 onSwiper={setSwiperRef}
                 centeredSlides={true}
-                spaceBetween={30}
                 pagination={{
                     type: 'fraction',
                 }}
@@ -45,10 +45,10 @@ export default function SwiperCard() {
                     <SwiperSlide key={user.id} virtualIndex={index}>
                         <Link href={`/${user.id}`}>
                             <div
-                                className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
+                                className="bg-white rounded-2xl shadow-md p-6 px-10 flex flex-col gap-4 hover:shadow-lg transition"
                             >
-                                <div className="flex items-center gap-4">
-                                    <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center text-gray-400">
+                                <div className="flex flex-col items-center gap-4">
+                                    <div className="w-[100px] h-[100px] rounded-full overflow-hidden bg-gray-200 flex items-center justify-center text-gray-400">
                                         {user.profilePic ? (
                                             <img
                                                 src={user.profilePic}
@@ -56,7 +56,7 @@ export default function SwiperCard() {
                                                 className="w-full h-full object-cover"
                                             />
                                         ) : (
-                                            <span className="text-xl">👤</span>
+                                            <span className="text-xl"><User size={100} /></span>
                                         )}
                                     </div>
                                     <div>

@@ -2,6 +2,7 @@
   "data": [
     {
       "id": "d86fa",
+      "img": "/me2.jpg",
       "personal": {
         "firstName": "Abdulloh",
         "email": "21@dsa",
@@ -35,7 +36,7 @@
         "firstName": "Abdulloh",
         "email": "21@dsa"
       },
-      "profilePic": "https://i.pravatar.cc/150?img=3"
+      "img": "/me2.jpg"
     },
     {
       "id": "09c4",
@@ -169,6 +170,36 @@
       ],
       "bio": "",
       "profilePic": {}
+    },
+    {
+      "id": "53dd",
+      "personal": {
+        "firstName": "",
+        "email": "",
+        "age": "",
+        "phone": "",
+        "location": ""
+      },
+      "skills": [
+        ""
+      ],
+      "experience": [
+        {
+          "company": "",
+          "role": "",
+          "years": "",
+          "description": ""
+        }
+      ],
+      "education": [
+        {
+          "school": "",
+          "degree": "",
+          "years": ""
+        }
+      ],
+      "bio": "",
+      "profilePic": null
     }
   ],
   "registration": [
@@ -234,6 +265,67 @@
       "password": "2222222222",
       "confirmPassword": "2222222222",
       "type": "jobseeker"
+    },
+    {
+      "id": "8908",
+      "img": "/me2.jpg",
+      "firstName": "shohruz",
+      "email": "shohruz@gmail.com",
+      "age": "22",
+      "password": "shohruz2211",
+      "confirmPassword": "shohruz2211",
+      "type": null,
+      "token": "3a732087-f61e-4b56-b9f8-d12580e284db"
+    },
+    {
+      "id": "8394",
+      "firstName": "aisha",
+      "email": "aisha@gmail.com",
+      "age": "19",
+      "password": "aisha221",
+      "confirmPassword": "aisha221",
+      "type": null,
+      "token": "b0d9eb67-941c-4321-8d83-fa6afe168650"
+    },
+    {
+      "id": "838a",
+      "email": "aisha@gmail.com",
+      "password": "aisha221"
+    },
+    {
+      "id": "39f2",
+      "email": "shohruz@gmail.com",
+      "password": "shohruz2211"
+    },
+    {
+      "id": "4fe8",
+      "email": "aisha@gmail.com",
+      "password": "aisha221"
+    },
+    {
+      "id": "57d4",
+      "email": "aisha@gmail.com",
+      "password": "aisha221"
+    },
+    {
+      "id": "c03e",
+      "email": "shohruz@gmail.com",
+      "password": "shohruz2211"
+    },
+    {
+      "id": "ec83",
+      "email": "shohruz@gmail.com",
+      "password": "shohruz2211"
+    },
+    {
+      "id": "b3a1",
+      "email": "shohruz@gmail.com",
+      "password": "shohruz2211"
+    },
+    {
+      "id": "4469",
+      "email": "111@gmail.com",
+      "password": "2222"
     }
   ],
   "login": [
