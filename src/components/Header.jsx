@@ -14,13 +14,15 @@ const Header = () => {
 
   const router = useRouter()
 
-  const getToken = localStorage.getItem('access_token')
-
-  // if (!getToken) {/
 
   useEffect(() => {
     const storedLang = localStorage.getItem('i18nextLng') || 'en'
     setLang(storedLang)
+  }, [])
+  let getToken = null
+
+  useEffect(() => {
+    getToken = localStorage.getItem('access_token')
   }, [])
 
   function changeLang(lang) {

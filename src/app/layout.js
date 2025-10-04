@@ -3,6 +3,7 @@ import "./globals.css";
 import { store } from "@/store/store";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import 'flag-icons/css/flag-icons.min.css';
 
 export default function RootLayout({ children }) {
   return (

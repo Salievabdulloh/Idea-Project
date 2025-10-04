@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+// import 'flag-icons/css/flag-icons.min.css';
 
 const Registration = () => {
   let { getUsers, users, registration } = useGetStore()
@@ -22,6 +23,7 @@ const Registration = () => {
       firstName: "",
       email: "",
       age: "",
+      phone: "",
       password: "",
       confirmPassword: ""
     }
@@ -67,6 +69,10 @@ const Registration = () => {
     }
   }
 
+  const countries = [
+    { code: 'tj', name: 'Tajikistan', dial: '+992' },
+    { code: 'uz', name: 'Uzbekistan', dial: '+998' },
+  ];
 
   useEffect(() => { getUsers() }, [])
 
@@ -95,6 +101,32 @@ const Registration = () => {
               className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
             />
             {errors.age && <p className="text-red-500 text-sm">Age is required</p>}
+          </div>
+          <div className='flex '>
+            {/* <select className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-400 outline-none">
+              {countries.map((c) => (
+                <option key={c.code} value={c.code}>
+                  {`${c.dial} ${c.name}`}
+                </option>
+              ))}
+            </select>
+            <div className="absolute top-200 left-2 pointer-events-none">
+              {countries.name === "Tajikistan" ? (
+                <span className="fi fi-tj" />
+              ) : countries.name === "Uzbekistan" ? (
+                <span className="fi fi-uz" />
+              ) : ("")}
+            </div> */}
+            <input
+              type="text"
+              {...register("phone", {
+                required: true
+              })}
+              placeholder="Phone +992"
+              maxLength={10}
+              className="w-full px-4 py-2 border rounded-lg fo  cus:ring-2 focus:ring-blue-400 outline-none"
+            />
+            {errors.phone && <p className="text-red-500 text-sm">Phone is required</p>}
           </div>
           <div>
             <input
@@ -145,8 +177,8 @@ const Registration = () => {
             </Link>
           </p>
         </form>
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 

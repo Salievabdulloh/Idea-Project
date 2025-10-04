@@ -9,6 +9,7 @@ const Profile = () => {
 
   const [image, setImage] = useState(null)
   const [editname, seteditname] = useState("")
+  const [editphone, seteditphone] = useState("")
   const [editemail, seteditemail] = useState("")
   const [editage, seteditage] = useState("")
   const [password, setPassword] = useState("")
@@ -22,6 +23,7 @@ const Profile = () => {
     if (getUser) {
       seteditname(getUser.firstName || "")
       seteditemail(getUser.email || "")
+      seteditphone(getUser.phone || "")
       seteditage(getUser.age || "")
       setPassword(getUser.password || "")
       setConfirmPassword(getUser.confirmPassword || "")
@@ -51,6 +53,7 @@ const Profile = () => {
       firstName: editname,
       email: editemail,
       age: editage,
+      phone: editphone,
       password,
       confirmPassword,
       id: idx,
@@ -69,7 +72,6 @@ const Profile = () => {
 
       <div className="flex flex-col gap-8 w-full max-w-4xl mx-auto">
 
-        {/* Profile Picture Section */}
         <div className="flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-lg shadow">
           <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
             {image ? (
@@ -84,17 +86,16 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Personal Information */}
         <section className="bg-white p-6 rounded-lg shadow flex flex-col gap-4">
           <h2 className="text-xl font-semibold">Personal Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input value={editname} onChange={(e) => seteditname(e.target.value)} placeholder="First Name" />
             <Input value={editemail} onChange={(e) => seteditemail(e.target.value)} placeholder="Email" />
             <Input value={editage} onChange={(e) => seteditage(e.target.value)} placeholder="Age" />
+            <Input value={editphone} onChange={(e) => seteditphone(e.target.value)} placeholder="Phone" />
           </div>
         </section>
 
-        {/* Password Section */}
         <section className="bg-white p-6 rounded-lg shadow flex flex-col gap-4">
           <h2 className="text-xl font-semibold">Security</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -103,7 +104,6 @@ const Profile = () => {
           </div>
         </section>
 
-        {/* Save Button */}
         <Button type="primary" onClick={postUsers} className="w-full py-3 text-lg">
           Save Profile
         </Button>
